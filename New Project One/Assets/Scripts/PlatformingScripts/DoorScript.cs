@@ -5,6 +5,8 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
 
+    public bool unlocked = false;
+
     private Animator _animator;
 
 
@@ -14,9 +16,17 @@ public class DoorScript : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
+        {
+            _animator.SetBool("openDoor", false);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (unlocked == true && other.tag == "Player")
         {
             _animator.SetBool("openDoor", true);
         }

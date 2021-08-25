@@ -322,6 +322,7 @@
 "Assets/MouseMovement.cs"
 "Assets/PlayerMovement.cs"
 "Assets/Scripts/PlatformingScripts/DoorScript.cs"
+"Assets/Scripts/PlatformingScripts/PanelScript.cs"
 -langversion:8.0
 
 /deterministic
