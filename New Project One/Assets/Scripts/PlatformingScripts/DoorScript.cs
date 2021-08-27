@@ -6,18 +6,19 @@ public class DoorScript : MonoBehaviour
 {
 
     public bool unlocked = false;
-
+    
     private Animator _animator;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     void OnTriggerExit(Collider other)
     {
+        Debug.Log("exit");
         if (other.tag == "Player")
         {
             _animator.SetBool("openDoor", false);
@@ -26,9 +27,13 @@ public class DoorScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (unlocked == true && other.tag == "Player")
+        Debug.Log("enter");
+        if (other.tag == "Player")
         {
-            _animator.SetBool("openDoor", true);
+            if (unlocked == true)
+            {
+                _animator.SetBool("openDoor", true);
+            }
         }
     }
     

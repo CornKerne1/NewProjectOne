@@ -23,7 +23,7 @@ public class PanelScript : MonoBehaviour
         if(on == false)
         {
             on = true;
-            _doorScript.GetComponent<DoorScript> ().unlocked = true;
+          _doorScript.GetComponent<DoorScript> ().unlocked = true;
         
         }
     }
